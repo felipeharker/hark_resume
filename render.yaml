@@ -1,0 +1,14 @@
+# Render Blueprint for the resume: one static service, published
+# as it is from this repository's main branch.
+#
+# It records the dashboard settings. Render reads this file only if it is
+# synced as a Blueprint; until then the dashboard rules, and the two must
+# match.
+services:
+  - type: web
+    name: hark-resume
+    runtime: static
+    repo: https://github.com/felipeharker/hark_resume
+    branch: main
+    buildCommand: echo "No build step - site/ is published as it is"
+    staticPublishPath: site
