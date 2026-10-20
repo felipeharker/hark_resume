@@ -12,18 +12,29 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet">
-    <!-- The shared stylesheet, then the resume's own (its narrower column
-         and its print sheet). The source of /standards/hark.css is
+    <!-- The shared stylesheet, then the resume's own (its print
+         sheet). The source of /standards/hark.css is
          web/standards/site/hark.css in hark_web. -->
     <link rel="stylesheet" href="https://felipeharker.org/standards/hark.css">
     <link rel="stylesheet" href="assets/site.css">
   </head>
   <body>
 
+    <!-- Running head ------------------------------------------------------- -->
+    <header class="runhead">
+      <a class="runhead-owner" href="https://felipeharker.org/">Felipe E. Harker</a>
+      <nav class="runhead-links" aria-label="Site">
+        <a href="https://felipeharker.org/">Portfolio</a>
+        <a href="https://hark-academic.onrender.com/">Academic</a>
+        <a href="https://hark-birding.onrender.com/">Birding</a>
+        <a href="/" aria-current="page">Resume</a>
+      </nav>
+    </header>
+
     <article class="doc">
 
       <!-- Masthead ------------------------------------------------------------ -->
-      <header class="masthead--left">
+      <header class="masthead">
         <p class="kicker">Curriculum Vitae</p>
         <h1 class="title">Felipe E. Harker</h1>
         <!-- Two recorded values on one line. The separator is a span rather than
@@ -39,7 +50,7 @@
       <hr class="rule">
 
       <!-- Contents. One entry per section, in document order. -->
-      <nav aria-label="Contents">
+      <nav class="contents" aria-label="Contents">
         <p class="toc-label">Contents</p>
         <ul class="toc toc--inline">
           <li><a href="#sec-education">Education</a></li>

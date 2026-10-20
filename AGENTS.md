@@ -22,8 +22,7 @@ decision log and the roadmap for all four live in
    `hark_academic`, `hark_birding`, `hark_resume` — may be linked.
 5. **One stylesheet, and it is not here.** The page links
    `https://felipeharker.org/standards/hark.css`, served by `hark_web`, then
-   `assets/site.css`, which holds only the narrower column and the print
-   sheet, commented. Never copy the standard; a change to a shared component
+   `assets/site.css`, which holds only the print sheet, commented. Never copy the standard; a change to a shared component
    is a change to it, in `hark_web`. No inline `style` attributes, no CSS
    framework, no build step, no JavaScript.
 6. **Only `site/` is published.** `resume.md` is a reference copy; the page is

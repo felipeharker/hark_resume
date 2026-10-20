@@ -33,7 +33,7 @@ hark_resume/
     check.mjs                 check the page, its links and the published files
   site/                       published, and nothing else
     index.html                the resume: the source of truth for its text
-    assets/site.css           its narrower column and its print sheet
+    assets/site.css           its print sheet
 ```
 
 ## Editing
@@ -42,7 +42,7 @@ hark_resume/
 |---|---|
 | Any text: contact line, education, experience, skills, references | `site/index.html` |
 | A section | its `<section>` in `site/index.html`, and its entry in the contents list near the top |
-| The column width or the print layout | `site/assets/site.css` |
+| The print layout | `site/assets/site.css`, which holds only the print sheet |
 | Anything shared — type, colour, entries, the footer | the standard, in `hark_web` |
 
 Each job or school is one `<div class="entry">`: title, organisation, a line
@@ -64,8 +64,8 @@ node tools/check.mjs
 The first serves the page at http://localhost:8000/; the second runs before
 every commit. Use the browser's print preview to check the printed sheet
 (Letter, default margins, headers and footers off). The print sheet hides
-the contents list and the footer, collapses the text colours toward black,
-and keeps each entry on one page.
+the running head, the contents list, the rule under the masthead and the
+footer, darkens the text, and keeps each entry on one page.
 
 ## Privacy
 
