@@ -5,7 +5,7 @@
  *
  *   node tools/check.mjs
  *
- * 1. Pages      every page links the shared stylesheet and script, carries links to
+ * 1. Pages      every page links the shared stylesheet, script and favicon, carries links to
  *               every site in the family in its running head and its
  *               colophon, and links the standards.
  * 2. Links      every link, image and stylesheet within this site resolves to
@@ -20,7 +20,7 @@
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { dirname, extname, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { FAMILY, SCRIPT, SITE, STANDARDS, STYLESHEET, resolveUrl, siteLinkHref } from './site.mjs';
+import { FAMILY, FAVICON, SCRIPT, SITE, STANDARDS, STYLESHEET, resolveUrl, siteLinkHref } from './site.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SKIP = new Set(['.git', 'node_modules', '.next']);
@@ -64,6 +64,7 @@ if (!existsSync(dir)) {
 
     if (SITE.kind === 'static' && !html.includes(`href="${STYLESHEET}"`)) problem(where, `does not link ${STYLESHEET}`);
     if (!html.includes(`src="${SCRIPT}"`)) problem(where, `does not link ${SCRIPT}`);
+    if (!html.includes(`href="${FAVICON}"`)) problem(where, `does not link the favicon, ${FAVICON}`);
     const nav = html.match(/<nav class="site-links"[\s\S]*?<\/nav>/);
     const head = html.match(/<nav class="runhead-links"[\s\S]*?<\/nav>/);
     if (!clientRendered) {

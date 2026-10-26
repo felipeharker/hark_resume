@@ -22,12 +22,15 @@ decision log and the roadmap for all four live in
    `hark_academic`, `hark_birding`, `hark_resume` — may be linked.
 5. **One stylesheet, and it is not here.** The page links
    `https://felipeharker.org/standards/hark.css`, served by `hark_web`, then
-   `assets/site.css`, which holds only the print sheet, commented. Never copy the standard; a change to a shared component
-   is a change to it, in `hark_web`. No inline `style` attributes, no CSS
-   framework, no build step, no JavaScript of its own. The one script is the standard's too:
-   every page links `https://felipeharker.org/standards/hark.js` straight
-   after its stylesheets, so it is set in the design — sans or serif — the
-   reader chose on felipeharker.org's front page. There is no switch here;
+   `assets/site.css`, which holds only the print sheet, commented. Never copy
+   the standard; a change to a shared component is a change to it, in
+   `hark_web`. No inline `style` attributes, no CSS framework, no build step,
+   no JavaScript of its own. The one script is the standard's too: every page
+   links `https://felipeharker.org/standards/hark.js` straight after its
+   stylesheets, so it is set in the design — sans or serif — and accent — ink,
+   red or blue — the reader chose on felipeharker.org's front page. Every page
+   links the standard's favicon too,
+   `https://felipeharker.org/standards/favicon.svg`. There is no switch here;
    the front page is the only place to choose.
 6. **Only `site/` is published.** `resume.md` is a reference copy; the page is
    the source of truth. PDFs are out of the repository for now.
