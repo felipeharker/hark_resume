@@ -24,7 +24,11 @@ decision log and the roadmap for all four live in
    `https://felipeharker.org/standards/hark.css`, served by `hark_web`, then
    `assets/site.css`, which holds only the print sheet, commented. Never copy the standard; a change to a shared component
    is a change to it, in `hark_web`. No inline `style` attributes, no CSS
-   framework, no build step, no JavaScript.
+   framework, no build step, no JavaScript of its own. The one script is the standard's too:
+   every page links `https://felipeharker.org/standards/hark.js` straight
+   after its stylesheets, so it is set in the design — sans or serif — the
+   reader chose on felipeharker.org's front page. There is no switch here;
+   the front page is the only place to choose.
 6. **Only `site/` is published.** `resume.md` is a reference copy; the page is
    the source of truth. PDFs are out of the repository for now.
 7. **Links.** Within this site: relative. To another site in the family:

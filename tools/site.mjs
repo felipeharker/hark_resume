@@ -10,6 +10,9 @@
  *              all of them at once.
  *   STYLESHEET the one shared stylesheet, served by hark_web. Every page links
  *              it by this address; nothing copies it.
+ *   SCRIPT     the one shared script, served by hark_web beside the stylesheet.
+ *              Every page links it, so it is set in the design the reader
+ *              chose on felipeharker.org's front page.
  */
 
 import { existsSync, statSync } from 'node:fs';
@@ -25,6 +28,7 @@ export const FAMILY = [
 ];
 
 export const STYLESHEET = 'https://felipeharker.org/standards/hark.css';
+export const SCRIPT = 'https://felipeharker.org/standards/hark.js';
 export const STANDARDS = 'https://felipeharker.org/standards/';
 
 /** The href a site link carries: root-relative to this site, absolute to the others. */
