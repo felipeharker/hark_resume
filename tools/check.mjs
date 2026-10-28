@@ -11,7 +11,8 @@
  * 2. Links      every link, image and stylesheet within this site resolves to
  *               a file, and every same-page #anchor to an id.
  * 3. Published  a static site's folder holds only web files — no PDFs, notes,
- *               models or Markdown — and no copy of the shared stylesheet
+ *               models or Markdown; at its root, robots.txt and sitemap.xml
+ *               too — and no copy of the shared stylesheet
  *               exists anywhere but the one generated file a Next app needs.
  *
  * The rules are the standard's, in hark_web: web/standards/docs/.
@@ -25,6 +26,8 @@ import { FAMILY, SCRIPT, SITE, STANDARDS, STYLESHEET, resolveUrl, siteLinkHref }
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SKIP = new Set(['.git', 'node_modules', '.next']);
 const WEB_FILES = new Set(['.html', '.css', '.svg', '.jpg', '.jpeg', '.png', '.webp', '.ico']);
+// What search engines read, at the root of the site: robots.txt names the sitemap.
+const CRAWLER_FILES = new Set(['robots.txt', 'sitemap.xml']);
 const GENERATED = 'web/src/app/hark.css';
 const problems = [];
 const problem = (where, what) => problems.push(`${where}: ${what}`);
@@ -96,7 +99,7 @@ console.log('\nPublished folder\n');
 
 if (SITE.kind === 'static') {
   const files = walk(dir);
-  const odd = files.filter((f) => !WEB_FILES.has(extname(f).toLowerCase()));
+  const odd = files.filter((f) => !WEB_FILES.has(extname(f).toLowerCase()) && !CRAWLER_FILES.has(relative(dir, f)));
   for (const f of odd) problem(rel(f), `is not a web file, and everything in ${SITE.dir}/ is published`);
   console.log(`  ${SITE.name.padEnd(10)} ${String(files.length).padStart(4)} files, ${odd.length} that should not be published`);
 }

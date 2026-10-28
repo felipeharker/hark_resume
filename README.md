@@ -37,6 +37,9 @@ hark_resume/
   site/                       published, and nothing else
     index.html                the resume: the source of truth for its text
     assets/site.css           its print sheet
+    assets/og.jpg             its share card, 1200 x 630
+    robots.txt                allow all; names the sitemap
+    sitemap.xml               the page's address
 ```
 
 ## Editing
@@ -46,6 +49,8 @@ hark_resume/
 | Any text: contact line, education, experience, skills, references | `site/index.html` |
 | A section | its `<section>` in `site/index.html`, and its entry in the contents list near the top |
 | The print layout | `site/assets/site.css`, which holds only the print sheet |
+| The title or description | the `<title>` and `<meta name="description">` in `site/index.html`, and the `og:title` and `og:description` under them, which repeat them for the share card |
+| The share card | `site/assets/og.jpg`: plain type, 1200 x 630 — the kicker, the name and a line under it on white, in the standard's type |
 | Anything shared — type, colour, entries, the footer | the standard, in `hark_web` |
 
 Each job or school is one `<div class="entry">`: title, organisation, a line
@@ -86,6 +91,6 @@ build step, publish directory `site`. The settings are recorded in
 [`render.yaml`](render.yaml).
 
 Its address is resume.felipeharker.org, the service's custom domain: a
-Porkbun CNAME to hark-resume.onrender.com, which still answers but is
-linked from nowhere. The old address, felipeharker.org/resume/, redirects
+Porkbun CNAME to hark-resume.onrender.com, an address Render no longer
+serves (Render Subdomain: Disabled), so the site has one address. The old address, felipeharker.org/resume/, redirects
 here from `hark-site`, the portfolio's Render service.
