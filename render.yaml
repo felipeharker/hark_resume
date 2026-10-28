@@ -1,9 +1,9 @@
 # Render Blueprint for the resume: one static service, published
 # as it is from this repository's main branch.
 #
-# It records the dashboard settings. Render reads this file only if it is
-# synced as a Blueprint; until then the dashboard rules, and the two must
-# match.
+# It is synced as a Render Blueprint (named after this repository): a push
+# that changes it changes the service, and a setting changed in the dashboard
+# and not here is overwritten at the next sync.
 services:
   - type: web
     name: hark-resume
