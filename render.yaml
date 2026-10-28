@@ -10,6 +10,8 @@ services:
     runtime: static
     repo: https://github.com/felipeharker/hark_resume
     branch: main
+    autoDeployTrigger: checksPass          # deploys a push once its Check workflow passes
+    renderSubdomainPolicy: disabled        # served only at its custom domain, not onrender.com
     buildCommand: echo "No build step - site/ is published as it is"
     staticPublishPath: site
     domains:
