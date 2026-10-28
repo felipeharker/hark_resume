@@ -12,3 +12,5 @@ services:
     branch: main
     buildCommand: echo "No build step - site/ is published as it is"
     staticPublishPath: site
+    domains:
+      - resume.felipeharker.org             # a Porkbun CNAME to its onrender.com address
