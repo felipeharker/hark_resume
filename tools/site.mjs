@@ -18,13 +18,13 @@
 import { existsSync, statSync } from 'node:fs';
 import { join, normalize } from 'node:path';
 
-export const SITE = { name: 'Resume', url: 'https://hark-resume.onrender.com/', dir: 'site', kind: 'static' };
+export const SITE = { name: 'Resume', url: 'https://resume.felipeharker.org/', dir: 'site', kind: 'static' };
 
 export const FAMILY = [
   { name: 'Portfolio', url: 'https://felipeharker.org/', repo: 'hark_web' },
-  { name: 'Academic', url: 'https://hark-academic.onrender.com/', repo: 'hark_academic' },
-  { name: 'Birding', url: 'https://hark-birding.onrender.com/', repo: 'hark_birding' },
-  { name: 'Resume', url: 'https://hark-resume.onrender.com/', repo: 'hark_resume' },
+  { name: 'Academic', url: 'https://academic.felipeharker.org/', repo: 'hark_academic' },
+  { name: 'Birding', url: 'https://birds.felipeharker.org/', repo: 'hark_birding' },
+  { name: 'Resume', url: 'https://resume.felipeharker.org/', repo: 'hark_resume' },
 ];
 
 export const STYLESHEET = 'https://felipeharker.org/standards/hark.css';

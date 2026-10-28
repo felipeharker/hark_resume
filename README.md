@@ -1,6 +1,6 @@
 # hark_resume
 
-The resume of Felipe E. Harker, served at **https://hark-resume.onrender.com/**:
+The resume of Felipe E. Harker, served at **https://resume.felipeharker.org/**:
 one static page that also prints as a clean sheet. Linked from the
 portfolio, [felipeharker.org](https://felipeharker.org/).
 
@@ -9,9 +9,9 @@ One of four sites built to the same standard, each in its own repository:
 | Site | Address | Repository |
 |---|---|---|
 | Portfolio, and the standards | https://felipeharker.org/ | [`hark_web`](https://github.com/felipeharker/hark_web) |
-| Academic | https://hark-academic.onrender.com/ | [`hark_academic`](https://github.com/felipeharker/hark_academic) |
-| Birding | https://hark-birding.onrender.com/ | [`hark_birding`](https://github.com/felipeharker/hark_birding) |
-| Resume | https://hark-resume.onrender.com/ | `hark_resume`, this one |
+| Academic | https://academic.felipeharker.org/ | [`hark_academic`](https://github.com/felipeharker/hark_academic) |
+| Birding | https://birds.felipeharker.org/ | [`hark_birding`](https://github.com/felipeharker/hark_birding) |
+| Resume | https://resume.felipeharker.org/ | `hark_resume`, this one |
 
 The design standard — the one shared stylesheet, its docs and its specimen
 page — lives in `hark_web` and is served at
@@ -85,7 +85,7 @@ A Render static site, `hark-resume`, deployed from `main` on every push: no
 build step, publish directory `site`. The settings are recorded in
 [`render.yaml`](render.yaml).
 
-The old addresses redirect here: felipeharker.org/resume/ from `hark-site`,
-the portfolio's Render service; resume-site-0rfl.onrender.com from
-`hark-resume-redirect`, the resume's first Render service, kept only for
-that; and resume.felipeharker.org through Porkbun's URL forwarding.
+Its address is resume.felipeharker.org, the service's custom domain: a
+Porkbun CNAME to hark-resume.onrender.com, which still answers but is
+linked from nowhere. The old address, felipeharker.org/resume/, redirects
+here from `hark-site`, the portfolio's Render service.
