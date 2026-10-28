@@ -35,7 +35,8 @@ decision log and the roadmap for all four live in
    absolute (`tools/site.mjs`), same tab. To anyone else: absolute,
    `target="_blank" rel="noopener noreferrer"`.
 8. **Text.** Plain language; headings in Title Case, never numbered. The page
-   ends with the colophon and its site links — this site's own link is `/`,
+   opens with the running head and ends with the colophon's site links, both
+   Portfolio · Resume (`tools/site.mjs`, `NAV`) — this site's own link is `/`,
    with `aria-current="page"`; the standards link is
    `https://felipeharker.org/standards/`.
 9. **Keep the docs true.** A change to how something works updates the

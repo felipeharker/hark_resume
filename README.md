@@ -31,7 +31,7 @@ hark_resume/
   render.yaml                 the Render service, recorded
   resume.md                   a reference copy of the text; not published, not read by anything
   tools/
-    site.mjs                  this site's address, and the family's
+    site.mjs                  this site's address, and its running head's links
     serve.mjs                 serve site/ locally
     check.mjs                 check the page, its links and the published files
   site/                       published, and nothing else

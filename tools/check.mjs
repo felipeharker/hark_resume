@@ -5,9 +5,9 @@
  *
  *   node tools/check.mjs
  *
- * 1. Pages      every page links the shared stylesheet and script, carries links to
- *               every site in the family in its running head and its
- *               colophon, and links the standards.
+ * 1. Pages      every page links the shared stylesheet and script, carries its section's
+ *               links (NAV in tools/site.mjs), in order, in its running head
+ *               and its colophon, and links the standards.
  * 2. Links      every link, image and stylesheet within this site resolves to
  *               a file, and every same-page #anchor to an id.
  * 3. Published  a static site's folder holds only web files — no PDFs, notes,
@@ -21,7 +21,7 @@
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { dirname, extname, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { FAMILY, SCRIPT, SITE, STANDARDS, STYLESHEET, resolveUrl, siteLinkHref } from './site.mjs';
+import { NAV, SCRIPT, SITE, STANDARDS, STYLESHEET, resolveUrl, siteLinkHref } from './site.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SKIP = new Set(['.git', 'node_modules', '.next']);
@@ -32,6 +32,12 @@ const GENERATED = 'web/src/app/hark.css';
 const problems = [];
 const problem = (where, what) => problems.push(`${where}: ${what}`);
 const rel = (p) => relative(ROOT, p).split(sep).join('/');
+
+// A nav's links as "Name href", the current one starred, to compare with NAV.
+const navLinks = (html) => [...html.matchAll(/<a\s([^>]*)>([^<]*)<\/a>/g)]
+  .map(([, attrs, text]) => `${text.trim()} ${attrs.match(/href="([^"]*)"/)?.[1]}${attrs.includes('aria-current') ? ' *' : ''}`)
+  .join(', ');
+const WANT = NAV.map((s) => `${s.name} ${siteLinkHref(s)}${s.url === SITE.url ? ' *' : ''}`).join(', ');
 
 function walk(dir, out = []) {
   for (const name of readdirSync(dir)) {
@@ -71,9 +77,9 @@ if (!existsSync(dir)) {
     const head = html.match(/<nav class="runhead-links"[\s\S]*?<\/nav>/);
     if (!clientRendered) {
       if (!nav) problem(where, 'has no site links');
-      else for (const s of FAMILY) if (!nav[0].includes(`href="${siteLinkHref(s)}"`)) problem(where, `site links miss ${s.name} (${siteLinkHref(s)})`);
+      else if (navLinks(nav[0]) !== WANT) problem(where, `site links are not ${WANT}`);
       if (!head) problem(where, 'has no running head');
-      else for (const s of FAMILY) if (!head[0].includes(`href="${siteLinkHref(s)}"`)) problem(where, `running head misses ${s.name} (${siteLinkHref(s)})`);
+      else if (navLinks(head[0]) !== WANT) problem(where, `running head is not ${WANT}`);
       if (!html.includes(`href="${STANDARDS}"`)) problem(where, `does not link ${STANDARDS}`);
     }
 
